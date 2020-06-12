@@ -1,0 +1,112 @@
+body {
+  background-image: linear-gradient(to top, #d7d2cc 0%, #304352 100%);
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: "Major Mono Display", monospace;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+form {
+  text-align: right;
+  margin-right: 40px;
+}
+
+h2 {
+  margin-left: 212px;
+  font-family: monospace;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  text-align: center;
+}
+
+.justify-content-md-center,
+p {
+  font-family: monospace;
+  color: #fff;
+  font-size: 15px;
+}
+
+.fa-meteor {
+  color: #d4f3ef;
+}
+
+.logo {
+  color: #d7d2cc;
+}
+.fa-search-location {
+  color: #d4f3ef;
+  font-size: 26px;
+}
+
+.option {
+  color: #fff;
+}
+
+.col-md-5 {
+  display: block;
+  margin-right: 50px;
+  border: 1px solid #d4f3ef;
+  border-radius: 5px;
+  box-shadow: 8px 8px 1px 0.6px rgba(213, 213, 236, 0.2);
+}
+
+.col {
+  text-align: center;
+}
+
+.col-sm {
+  padding-top: 80px;
+}
+
+.fa-tint {
+  font-size: 15px;
+}
+
+.fa-cloud-meatball {
+  font-size: 10px;
+}
+
+.fa-wind {
+  font-size: 10px;
+}
+
+.col-2 {
+  display: block;
+  margin-top: 100px;
+  padding-top: 10px;
+  border: 1px solid #d4f3ef;
+  border-radius: 5px;
+  box-shadow: 8px 8px 1px 0.6px rgba(213, 213, 236, 0.2);
+  text-align: center;
+  background: #30435277;
+}
+
+.fa-cloud-sun-rain {
+  font-size: 60px;
+}
+
+.separator {
+  background: #d4f3ef;
+  margin: 0 30px;
+}
+
+.col-lg-2 {
+  text-align: center;
+}
+
+.fa-sun {
+  font-size: 40px;
+}
+
+.fa-cloud-sun {
+  font-size: 40px;
+}
