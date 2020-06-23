@@ -35,6 +35,15 @@ p {
   font-size: 15px;
 }
 
+.row .active {
+  color: #fff;
+  cursor: default;
+}
+
+.row .active:hover {
+  text-decoration: underline;
+}
+
 .fa-meteor {
   color: #d4f3ef;
 }

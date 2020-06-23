@@ -118,12 +118,16 @@ locationIcon.addEventListener("click", getCurrentPosition);
 
 function showCTemp(event) {
   event.preventDefault();
+  fahrenheitTemp.classList.remove("active");
+  celciusTemp.classList.add("active");
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(celciusTemperature);
 }
 
 function showFTemp(event) {
   event.preventDefault();
+  celciusTemp.classList.remove("active");
+  fahrenheitTemp.classList.add("active");
   let temperature = document.querySelector("#temperature");
   let fTemp = (celciusTemperature * 9) / 5 + 32;
   temperature.innerHTML = Math.round(fTemp);
