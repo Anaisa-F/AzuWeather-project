@@ -40,7 +40,7 @@ p {
   cursor: default;
 }
 
-.row .active:hover {
+.row .active :hover {
   text-decoration: underline;
 }
 
