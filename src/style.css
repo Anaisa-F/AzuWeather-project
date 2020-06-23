@@ -35,12 +35,12 @@ p {
   font-size: 15px;
 }
 
-.row .active {
+.active {
   color: #fff;
   cursor: default;
 }
 
-.row .active :hover {
+.active:hover {
   text-decoration: underline;
 }
 
