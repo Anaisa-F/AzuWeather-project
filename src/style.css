@@ -35,13 +35,13 @@ p {
   font-size: 15px;
 }
 
-.active {
+.row .active {
   color: #fff;
   cursor: default;
 }
 
-.active:hover {
-  text-decoration: underline;
+.row .active:hover {
+  text-decoration: none;
 }
 
 .fa-meteor {
