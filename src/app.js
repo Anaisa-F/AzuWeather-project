@@ -73,9 +73,10 @@ function displayCityWeatherDetails(response) {
   let grabCity = document.querySelector("#city");
   grabCity.innerHTML = `${city}`;
 
-  let celcius = Math.round(response.data.main.temp);
+  celciusTemperature = response.data.main.temp;
+  let temperature = Math.round(celciusTemperature);
   let grabTempId = document.querySelector("#temperature");
-  grabTempId.innerHTML = `${celcius}°C`;
+  grabTempId.innerHTML = `${temperature}`;
 
   let weatherDescrip = response.data.weather[0].main;
   let grabWeatherDescrip = document.querySelector("#weather-description");
@@ -112,3 +113,26 @@ function getCurrentPosition() {
 
 let locationIcon = document.querySelector("#current-location");
 locationIcon.addEventListener("click", getCurrentPosition);
+
+//Show temperature in Celcius and Fahrenheit
+
+function showCTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celciusTemperature);
+}
+
+function showFTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  let fTemp = (celciusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fTemp);
+}
+
+let celciusTemperature = null;
+
+let celciusTemp = document.querySelector("#celcius");
+celciusTemp.addEventListener("click", showCTemp);
+
+let fahrenheitTemp = document.querySelector("#fahrenheit");
+fahrenheitTemp.addEventListener("click", showFTemp);
