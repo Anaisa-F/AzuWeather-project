@@ -57,6 +57,11 @@ function search(event) {
   let apiKey = "8aad1c1ba226eed51460cd1b41a86b50";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(`${url}&appid=${apiKey}`).then(displayCityWeatherDetails);
+
+  // To display the forecast for the next 5 days
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let form = document.querySelector("#search-form");
@@ -140,3 +145,9 @@ celciusTemp.addEventListener("click", showCTemp);
 
 let fahrenheitTemp = document.querySelector("#fahrenheit");
 fahrenheitTemp.addEventListener("click", showFTemp);
+
+// Forecast for the next 5 days
+
+function displayForecast(response) {
+  console.log(response.data);
+}
