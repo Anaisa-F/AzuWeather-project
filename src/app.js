@@ -1,43 +1,42 @@
 // Local time
-let now = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-let currentDate = document.querySelector("#current-date");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
+  let actualDate = date.getDate();
 
-let date = now.getDate();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
 
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-let month = months[now.getMonth()];
+  let year = date.getFullYear();
 
-let year = now.getFullYear();
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
 
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${actualDate} ${month} ${year}, ${hours}:${minutes}`;
 }
-
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-currentDate.innerHTML = `${day} ${date} ${month} ${year}, ${hours}:${minutes}`;
-
 // Search Engine - The user searches for its current location or by city;
 // If searching by city, once typed the button "go" will give an alert warning the city it's being loaded;
 // The city and its details will show;
@@ -65,6 +64,10 @@ form.addEventListener("submit", search);
 
 function displayCityWeatherDetails(response) {
   console.log(response.data);
+
+  let cityDate = formatDate(response.data.dt * 1000);
+  let grabDate = document.querySelector("#date");
+  grabDate.innerHTML = `${cityDate}`;
 
   let city = response.data.name;
   let grabCity = document.querySelector("#city");
