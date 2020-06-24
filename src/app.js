@@ -61,7 +61,9 @@ function search(event) {
     h2.innerHTML = `${searchInput.value}`;
   } else {
     h2.innerHTML = null;
-    alert(`Please type the city you are looking to check the weather.`);
+    alert(
+      `Please type the city you are looking so we check the weather for you!`
+    );
   }
 }
 
