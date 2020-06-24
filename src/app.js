@@ -42,10 +42,19 @@ function formatDate(timestamp) {
 // The city and its details will show;
 // If no city it's populated an alert will pop up too.
 
+function searchCityForm(city) {
+  let apiKey = "8aad1c1ba226eed51460cd1b41a86b50";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(`${url}&appid=${apiKey}`).then(displayCityWeatherDetails);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-button");
-  let city = `${searchInput.value}`;
+  searchCityForm(searchInput.value);
   let h2 = document.querySelector("h2");
   if (searchInput.value) {
     alert(`Searching the weather in ${searchInput.value} ⏳`);
@@ -54,14 +63,6 @@ function search(event) {
     h2.innerHTML = null;
     alert(`Please type the city you are looking to check the weather.`);
   }
-  let apiKey = "8aad1c1ba226eed51460cd1b41a86b50";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(`${url}&appid=${apiKey}`).then(displayCityWeatherDetails);
-
-  // To display the forecast for the next 5 days
-
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
 }
 
 let form = document.querySelector("#search-form");
