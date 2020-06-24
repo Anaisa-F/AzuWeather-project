@@ -86,7 +86,7 @@ form.addEventListener("submit", search);
 function displayCityWeatherDetails(response) {
   console.log(response.data);
 
-  let cityDate = formatDate(response.data.dt * 1000);
+  let cityDate = formatHours(response.data.dt * 1000);
   let grabDate = document.querySelector("#date");
   grabDate.innerHTML = `${cityDate}`;
 
