@@ -17,9 +17,7 @@ function formatHours(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  return `${day} ${formatDate(
-    timestamp
-  )} ${month} ${year}, ${hours}:${minutes}`;
+  return `${day} ${formatDate(timestamp)} ${year}, ${hours}:${minutes}`;
 }
 
 //timestamp for next 5 days weather
