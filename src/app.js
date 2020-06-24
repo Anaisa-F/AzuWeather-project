@@ -1,9 +1,31 @@
 // Local time
-function formatDate(timestamp) {
+function formatHours(timestamp) {
   let date = new Date(timestamp);
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
+
+  let year = date.getFullYear();
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${formatDate(
+    timestamp
+  )} ${month} ${year}, ${hours}:${minutes}`;
+}
+
+//timestamp for next 5 days weather
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
   let actualDate = date.getDate();
 
@@ -23,19 +45,10 @@ function formatDate(timestamp) {
   ];
   let month = months[date.getMonth()];
 
-  let year = date.getFullYear();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
 
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  return `${day} ${actualDate} ${month} ${year}, ${hours}:${minutes}`;
+  return `${actualDate} ${month} ${day}`;
 }
 // Search Engine - The user searches for its current location or by city;
 // If searching by city, once typed the button "go" will give an alert warning the city it's being loaded;
@@ -150,7 +163,65 @@ let fahrenheitTemp = document.querySelector("#fahrenheit");
 fahrenheitTemp.addEventListener("click", showFTemp);
 
 // Forecast for the next 5 days
+// Box next to actual day will represent the next day
 
 function displayForecast(response) {
-  console.log(response.data);
+  let forecastNextDay = document.querySelector("#forecast-next-day");
+  let forecast = response.data.list[7];
+  console.log(forecast);
+
+  forecastNextDay.innerHTML = `
+     ${formatDate(forecast.dt * 1000)}
+      <br />
+      <img src="http://openweathermap.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png"/>
+      <br />
+      <strong>${Math.round(forecast.main.temp_max)}°</strong>
+      ${Math.round(forecast.main.temp_min)}°
+  </div>`;
+
+  // Rows at the bottom of the page will represent the remaining four days
+
+  let forecastNextFourDays = document.querySelector("#forecast-next-four-days");
+
+  let forecastDayOne = response.data.list[15];
+  forecastNextFourDays.innerHTML += `
+  <div class="col col-lg-2">
+  ${formatDate(forecastDayOne.dt * 1000)}
+  <br />
+  <img src="http://openweathermap.org/img/wn/${
+    forecastDayOne.weather[0].icon
+  }@2x.png"/>
+  </div>`;
+
+  let forecastDayTwo = response.data.list[23];
+  forecastNextFourDays.innerHTML += `
+  <div class="col col-lg-2">
+  ${formatDate(forecastDayTwo.dt * 1000)}
+  <br />
+  <img src="http://openweathermap.org/img/wn/${
+    forecastDayTwo.weather[0].icon
+  }@2x.png"/>
+  </div>`;
+
+  let forecastDayThree = response.data.list[31];
+  forecastNextFourDays.innerHTML += `
+  <div class="col col-lg-2">
+  ${formatDate(forecastDayThree.dt * 1000)}
+  <br />
+  <img src="http://openweathermap.org/img/wn/${
+    forecastDayThree.weather[0].icon
+  }@2x.png"/>
+  </div>`;
+
+  let forecastDayFour = response.data.list[39];
+  forecastNextFourDays.innerHTML += `
+  <div class="col col-lg-2">
+  ${formatDate(forecastDayFour.dt * 1000)}
+  <br />
+  <img src="http://openweathermap.org/img/wn/${
+    forecastDayFour.weather[0].icon
+  }@2x.png"/>
+  </div>`;
 }
