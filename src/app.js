@@ -1,9 +1,27 @@
 // Local time
-function formatHours(timestamp) {
+function formatDate(timestamp) {
   let date = new Date(timestamp);
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
+
+  let actualDate = date.getDate();
+
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
 
   let year = date.getFullYear();
 
@@ -17,12 +35,12 @@ function formatHours(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  return `${day} ${formatDate(timestamp)} ${year}, ${hours}:${minutes}`;
+  return `${day} ${actualDate} ${month} ${year}, ${hours}:${minutes}`;
 }
 
 //timestamp for next 5 days weather
 
-function formatDate(timestamp) {
+function formatDateFiveDays(timestamp) {
   let date = new Date(timestamp);
 
   let actualDate = date.getDate();
@@ -46,7 +64,7 @@ function formatDate(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
 
-  return `${actualDate} ${month} ${day}`;
+  return `${actualDate} ${month}<br` + `><strong>${day}</strong>`;
 }
 // Search Engine - The user searches for its current location or by city;
 // If searching by city, once typed the button "go" will give an alert warning the city it's being loaded;
@@ -84,7 +102,7 @@ form.addEventListener("submit", search);
 function displayCityWeatherDetails(response) {
   console.log(response.data);
 
-  let cityDate = formatHours(response.data.dt * 1000);
+  let cityDate = formatDate(response.data.dt * 1000);
   let grabDate = document.querySelector("#date");
   grabDate.innerHTML = `${cityDate}`;
 
@@ -172,7 +190,7 @@ function displayForecast(response) {
   console.log(forecast);
 
   forecastNextDay.innerHTML = `
-     ${formatDate(forecast.dt * 1000)}
+     ${formatDateFiveDays(forecast.dt * 1000)}
       <br />
       <img src="http://openweathermap.org/img/wn/${
         forecast.weather[0].icon
@@ -190,7 +208,7 @@ function displayForecast(response) {
   let forecastDayOne = response.data.list[15];
   forecastNextFourDays.innerHTML += `
   <div class="col col-lg-2">
-  ${formatDate(forecastDayOne.dt * 1000)}
+  ${formatDateFiveDays(forecastDayOne.dt * 1000)}
   <br />
   <img src="http://openweathermap.org/img/wn/${
     forecastDayOne.weather[0].icon
@@ -200,7 +218,7 @@ function displayForecast(response) {
   let forecastDayTwo = response.data.list[23];
   forecastNextFourDays.innerHTML += `
   <div class="col col-lg-2">
-  ${formatDate(forecastDayTwo.dt * 1000)}
+  ${formatDateFiveDays(forecastDayTwo.dt * 1000)}
   <br />
   <img src="http://openweathermap.org/img/wn/${
     forecastDayTwo.weather[0].icon
@@ -210,7 +228,7 @@ function displayForecast(response) {
   let forecastDayThree = response.data.list[31];
   forecastNextFourDays.innerHTML += `
   <div class="col col-lg-2">
-  ${formatDate(forecastDayThree.dt * 1000)}
+  ${formatDateFiveDays(forecastDayThree.dt * 1000)}
   <br />
   <img src="http://openweathermap.org/img/wn/${
     forecastDayThree.weather[0].icon
@@ -220,7 +238,7 @@ function displayForecast(response) {
   let forecastDayFour = response.data.list[39];
   forecastNextFourDays.innerHTML += `
   <div class="col col-lg-2">
-  ${formatDate(forecastDayFour.dt * 1000)}
+  ${formatDateFiveDays(forecastDayFour.dt * 1000)}
   <br />
   <img src="http://openweathermap.org/img/wn/${
     forecastDayFour.weather[0].icon
