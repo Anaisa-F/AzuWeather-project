@@ -124,6 +124,9 @@ function showLocation(position) {
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(`${url}&appid=${apiKey}`).then(displayCityWeatherDetails);
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentPosition() {
@@ -182,6 +185,7 @@ function displayForecast(response) {
   // Rows at the bottom of the page will represent the remaining four days
 
   let forecastNextFourDays = document.querySelector("#forecast-next-four-days");
+  forecastNextFourDays.innerHTML = "";
 
   let forecastDayOne = response.data.list[15];
   forecastNextFourDays.innerHTML += `
