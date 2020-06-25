@@ -110,6 +110,13 @@ function displayCityWeatherDetails(response) {
   let grabCity = document.querySelector("#city");
   grabCity.innerHTML = `${city}`;
 
+  let icon = response.data.weather[0].icon;
+  grabMainIcon = document.querySelector("#main-icon");
+  grabMainIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+
   celciusTemperature = response.data.main.temp;
   let temperature = Math.round(celciusTemperature);
   let grabTempId = document.querySelector("#temperature");
