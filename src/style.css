@@ -72,9 +72,6 @@ p {
 .col-md-5 {
   display: block;
   height: 199px;
-  margin-top: 0px;
-  margin-bottom: 8px;
-  margin-right: 50px;
   border: 1px solid #d4f3ef;
   border-radius: 5px;
   box-shadow: 8px 8px 1px 0.6px rgba(213, 213, 236, 0.2);
