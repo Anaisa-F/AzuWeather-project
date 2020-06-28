@@ -40,10 +40,6 @@ p {
   font-size: 15px;
 }
 
-.temp-number {
-  font-size: 25px;
-}
-
 .row .active {
   color: #fff;
   cursor: default;
