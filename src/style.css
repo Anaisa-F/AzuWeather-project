@@ -1,6 +1,7 @@
 body {
   background-image: linear-gradient(to top, #d7d2cc 0%, #304352 100%);
   background-repeat: no-repeat;
+  padding-top: 29px;
 }
 
 h1 {
