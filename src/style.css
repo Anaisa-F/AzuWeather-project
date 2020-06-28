@@ -28,6 +28,22 @@ p {
   text-align: center;
 }
 
+.container {
+  padding-top: 29px;
+}
+
+.btn-outline-light {
+  margin-bottom: 4px;
+}
+
+.row .temperature {
+  font-size: 20px;
+}
+
+.row .weather-description {
+  font-size: 20px;
+}
+
 .justify-content-md-center,
 p {
   font-family: monospace;
@@ -75,7 +91,7 @@ p {
 }
 
 .col-sm {
-  padding-top: 80px;
+  padding-top: 43px;
 }
 
 .fa-tint {
