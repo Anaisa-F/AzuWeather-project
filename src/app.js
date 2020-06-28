@@ -193,7 +193,7 @@ fahrenheitTemp.addEventListener("click", showFTemp);
 
 function displayForecast(response) {
   let forecastNextDay = document.querySelector("#forecast-next-day");
-  let forecast = response.data.list[8];
+  let forecast = response.data.list[7];
   console.log(forecast);
 
   forecastNextDay.innerHTML = `
