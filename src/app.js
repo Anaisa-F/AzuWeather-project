@@ -177,7 +177,7 @@ function showFTemp(event) {
   fahrenheitTemp.classList.add("active");
   let temperature = document.querySelector("#temperature");
   let fTemp = (celciusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = <strong>Math.round(fTemp)</strong>;
+  temperature.innerHTML = Math.round(fTemp);
 }
 
 let celciusTemperature = null;
