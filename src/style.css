@@ -36,14 +36,6 @@ p {
   margin-bottom: 4px;
 }
 
-.row .temperature {
-  font-size: 20px;
-}
-
-.row .weather-description {
-  font-size: 20px;
-}
-
 .justify-content-md-center,
 p {
   font-family: monospace;

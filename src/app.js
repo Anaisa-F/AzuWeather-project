@@ -124,7 +124,7 @@ function displayCityWeatherDetails(response) {
 
   let weatherDescrip = response.data.weather[0].main;
   let grabWeatherDescrip = document.querySelector("#weather-description");
-  grabWeatherDescrip.innerHTML = `${weatherDescrip}`;
+  grabWeatherDescrip.innerHTML = `<strong>${weatherDescrip}</strong>`;
 
   let humidity = response.data.main.humidity;
   let grabHumidity = document.querySelector("#humidity-results");
@@ -177,7 +177,7 @@ function showFTemp(event) {
   fahrenheitTemp.classList.add("active");
   let temperature = document.querySelector("#temperature");
   let fTemp = (celciusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(fTemp);
+  temperature.innerHTML = <strong>Math.round(fTemp)</strong>;
 }
 
 let celciusTemperature = null;
